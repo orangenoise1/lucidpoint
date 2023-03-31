@@ -1,5 +1,17 @@
+#Input Project ID and Billing Account
+
+variable "project_id" {
+  type    = string
+  sensitive = false
+}
+
+variable "billing_account" {
+  type    = string
+  sensitive = true
+}
+
 provider "google" {
-  project = "orangenoise-xxx"
+  project = var.project_id
   region = "us-west1"
 }
 
@@ -7,8 +19,8 @@ provider "google" {
 
 resource "google_project" "project" {
   name = "orangenoise"
-  project_id = "orangenoise-xxx"
-  billing_account = "014600-EBAF1A-AFD0FD"
+  project_id = var.project_id
+  billing_account = var.billing_account
   auto_create_network = false
 }
 
