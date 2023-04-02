@@ -7,7 +7,7 @@ variable "project_id" {
 
 variable "billing_account" {
   type    = string
-  sensitive = true
+  sensitive = false
 }
 
 provider "google" {
